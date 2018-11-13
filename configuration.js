@@ -7,8 +7,10 @@ let envType = process.env.NODE_ENV || "stage";
 let config =
 {
     development: {
+        port: env.PORT || 7899,
     },
     stage: {
+        port: env.PORT || 5000,
     },
     common: {
         tempfolder: os.tmpdir(),
