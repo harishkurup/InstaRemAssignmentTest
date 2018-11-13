@@ -4,8 +4,8 @@
 */
 'use strict';
 const Promise = require('bluebird');
-const fileDataProcessClass = require('./fileDataProcess');
-let battles = require('../../models/battles');
+let fileDataProcessClass = require('./fileDataProcess');
+let battleModel = require('../../models/battles');
 class fileDataClass {
     constructor() {
         let self = this;
@@ -31,7 +31,7 @@ class fileDataClass {
             Promise.mapSeries(JsonData, function (obj) {
                 return function () {//creating closure to retian values in vairable
                     return new Promise(function (inresolve, inreject) {
-                        let battleData = new battles({
+                        let battleData = new battleModel({
                             name: obj[0],
                             year: obj[1],
                             battle_number: obj[2],
