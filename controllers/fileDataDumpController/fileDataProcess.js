@@ -1,26 +1,44 @@
+/* Comment By: Shorya Saxena
+   DESC: This component will be used to convert file Data to Json data
+   Bussiness Logic
+*/
 'use strict';
-var csv = require('fast-csv');
+const csv = require('fast-csv');
 class fileDataProcessClass {
     constructor() {
 
     }
     processData(fileData) {
+        let self = this;
         return new Promise((resolve, reject) => {
-            let authors=[];
-            csv
-                .fromString(authorFile.data.toString(), {
-                    headers: true,
-                    ignoreEmpty: true
-                })
-                .on("data", function (data) {
-                    data['_id'] = new mongoose.Types.ObjectId();
+            self.readFileData(fileData)
+                .then(data => {
+                    resolve(data);
+                }, err => {
+                    reject(err);
+                }).catch(err => {
+                    reject(err);
+                });
+        });
+    }
 
-                    authors.push(data);
+    readFileData(fileData) {
+        let self = this;
+        return new Promise((resolve, reject) => {
+            let dataArray = [];
+            csv.fromString(fileData.data,
+                {
+                    headers: false
+                })
+                // .transform(function(data){
+                //     return data.reverse(); //reverse each row. 
+                // })
+                .on("data", function (data) {
+                    dataArray.push(data)
                 })
                 .on("end", function () {
-                    console.log(authors)
+                    resolve(dataArray)
                 });
-
         });
     }
 }

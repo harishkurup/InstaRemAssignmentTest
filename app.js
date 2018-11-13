@@ -7,7 +7,7 @@ var http = require('http');
 const app = express();
 const fileUpload = require('express-fileupload');
 let server, options;
-let index = require('./router/index');
+let index = require('./router/index');//routing
 let config = require('./configuration');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-
+require('./cacheDb/mongoDb');//connection to mongodb
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(fileUpload());

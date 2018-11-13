@@ -16,11 +16,11 @@ router.post('/upload', function(req, res) {
             res.status(200);
             res.send(data);
         }, err => {
-            res.status(error.status);
-            res.send(error.message);
+            res.status(err.status);
+            res.send(err.message);
         }).catch(err => {
-            res.status(error.status);
-            res.send(error.message);
+            res.status(err.status);
+            res.send(err.message);
         })
     } catch (error) {
         res.status(error.status);

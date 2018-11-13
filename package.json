@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/shoryasaxena89/InstaReMAssignment#readme",
   "dependencies": {
+    "bluebird": "^3.5.3",
     "express": "^4.16.4",
     "express-fileupload": "^1.0.0",
     "jade": "^1.11.0",
