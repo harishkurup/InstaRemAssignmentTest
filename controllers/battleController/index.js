@@ -40,7 +40,7 @@ class BattleDetails {
             self.battleStatsMostActiveData()////will fetch attacker_king,defender_king,region and name data
                 .then(self.battleStatsAttackerOutcomeData.bind(self))////will fetch win and loss data
                 .then(self.battleTypeData.bind(self))//will fetch unique battledata
-                .then(self.battleStatsDefenderSize.bind(self))//will fetch unique battledata
+                .then(self.battleStatsDefenderSize.bind(self))//will fetch average,min and max data
                 .then(data => {
                     resolve(data);
                 }, err => {
