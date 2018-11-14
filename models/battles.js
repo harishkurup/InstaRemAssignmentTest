@@ -21,7 +21,7 @@ var clientLocationModel = new Schema({
     battle_type: { type: String },
     major_death: { type: String },
     major_capture: { type: String },
-    attacker_size: { type: String },
+    attacker_size: { type:  Number},
     defender_size: { type: String },
     attacker_commander: { type: String },
     defender_commander: { type: String },

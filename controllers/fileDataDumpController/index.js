@@ -60,7 +60,7 @@ class fileDataClass {
                         });
                         battleData.save(function (err) {
                             if (err) {
-                                inreject('Please try again'); return;
+                                inreject('Please try again',err); return;
                             }
                             inresolve(`Data Uploaded Succesfully for name ${obj[0]}`)
                         });

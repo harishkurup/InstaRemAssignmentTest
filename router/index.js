@@ -32,16 +32,37 @@ router.post('/upload', function (req, res) {
 router.get('/list', function (req, res) {
     try {
         let battleDataObj = new battleDataClass();
-        battleDataObj.battleLocationList().then(data => {
-            res.status(200);
-            res.send(data);
-        }, err => {
-            res.status(err.status);
-            res.send(err.message);
-        }).catch(err => {
-            res.status(err.status);
-            res.send(err.message);
-        })
+        battleDataObj.battleLocationList()
+            .then(data => {
+                res.status(200);
+                res.send(data);
+            }, err => {
+                res.status(err.status);
+                res.send(err.message);
+            }).catch(err => {
+                res.status(err.status);
+                res.send(err.message);
+            })
+    } catch (error) {
+        res.status(error.status);
+        res.send(error.message);
+    }
+});
+
+router.get('/stats', function (req, res) {
+    try {
+        let battleDataObj = new battleDataClass();
+        battleDataObj.battleStatsData()
+            .then(data => {
+                res.status(200);
+                res.send(data);
+            }, err => {
+                res.status(err.status);
+                res.send(err.message);
+            }).catch(err => {
+                res.status(err.status);
+                res.send(err.message);
+            })
     } catch (error) {
         res.status(error.status);
         res.send(error.message);
